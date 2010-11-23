@@ -1,0 +1,52 @@
+<?xml version=1.0 encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>Lab Program 2</title>
+		<script type="text/javascript">
+			f=square()
+			document.writeln("The Squares Table is: \n "+f)
+			fib=fibonacci()
+			document.write(" \n The Fibonacci Series is: \n "+fib)
+			function fibonacci(){
+				a=0
+				b=1
+				c=0
+				n = prompt("Number of terms of fibonacci series:");
+				fib="0"
+				if (n == 1)
+					alert(fib);
+				else if (n == 2){
+					fib=fib+" 1"
+					alert(fib)
+				}
+				else if(n > 2){
+					fib=" 0 \n 1 \n "
+					for(i=3;i<=n;i++){
+						c=a+b
+						fib=fib+c+" \n "
+						a=b
+						b=c		
+					}
+					alert(fib)
+				}
+				else
+					alert("Wrong Number please enter a number > 0")
+
+				return fib
+			}
+			function square(){		
+				n = prompt("Please enter N for generating Squares table:")
+				f=""
+				for(i=1;i<=n;i++){
+					f = f + i + " = " + i*i + "\n"		
+				}	
+				alert(f)
+				
+				return f
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
