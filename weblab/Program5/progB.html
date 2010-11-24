@@ -3,19 +3,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head><title>Program 5A</title>
 <script type="text/javascript">
-var z = 1;
 function over(a){
-	document.getElementById(a).style.zIndex=String(z);
-	z++;
+	document.getElementById(a).style.zIndex="1";
 	}
-/*function out(a){
+function out(a){
 	document.getElementById(a).style.zIndex="0";
-	}*/
+	}
 </script>
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-<div class="para1" id="para1" onMouseOver="over('para1')"> onMouseOut="out('para1')">
+<div class="para1" id="para1" onMouseOver="over('para1')" onMouseOut="out('para1')">
 PARA 1<br />
 The Zen of Python, by Tim Peters
 
@@ -39,7 +37,7 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 </div>
-<div class="para2" id="para2" onmouseover="over('para2')" >onmouseout="out('para2')">
+<div class="para2" id="para2" onmouseover="over('para2')" onmouseout="out('para2')">
 PARA 2<br />
 The Zen of Python, by Tim Peters
 
@@ -64,7 +62,7 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 
 </div>
-<div class="para3" id="para3" onmouseover="over('para3')" >onmouseout="out('para3')">
+<div class="para3" id="para3" onmouseover="over('para3')" onmouseout="out('para3')">
 PARA 3<br />
 The Zen of Python, by Tim Peters
 
