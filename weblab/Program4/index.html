@@ -1,0 +1,34 @@
+<?xml version=1.0 encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title>Program 4</title>
+  <script type="text/javascript">
+  function validate(){
+  
+    usn = document.getElementById("usn").value;
+    sem = document.getElementById("sem").value;
+    regex=/[1-9][A-Z][A-Z][0-9][0-9][A-Z][A-Z][0-9][0-9][0-9]$/;
+    while(!usn.match(regex)){
+    	alert("USN is Incorrect.");	
+	document.getElementById("usn").focus();
+	usn = prompt("Please enter your USN");
+    }
+    alert("The USN is entered Correctly.");
+    document.getElementById("usn").value=usn;
+    while((sem < 1 ) & (sem > 8)){
+	alert("USN is WRONG")
+	document.getElementById("sem").focus()
+	sem = prompt("Please enter your Semester")
+    }
+    alert("Semester is entered correctly");
+    document.getElementById("sem").value=sem;
+  }			
+</script>
+</head>
+<body>
+  Please enter your USN :<input type="text" name="usn" id="usn"><br />
+  Please enter your Semester :<input type="text" name="sem" id="sem" MaxLength=1><br />
+  <input type="submit" value="Submit" onClick="validate()">
+  </body>
+</html>
