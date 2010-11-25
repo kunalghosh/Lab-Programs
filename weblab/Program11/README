@@ -1,3 +1,3 @@
-Write a php program to store current date-time in a COOKIE and display
-the 'Last Visited On:" date-time on the web page upon reopening the 
-same page.
+write a php program to store current date-time in 
+a COOKIE and display the 'last visited on' date-time on the web
+page upon reopening of the same page.
