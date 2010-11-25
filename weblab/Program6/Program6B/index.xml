@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="style.xsl" ?>
+<vtu>
+<college>
+<usn>1mv07cs048</usn>
+<name>kunal ghosh</name>
+<college_name>mvit</college_name>
+<branch>CS</branch>
+<year>4</year>
+<join>2007</join>
+<email>kg@kg.com</email>
+</college>
+<college>
+<usn>1mv07cs049</usn>
+<name>kunal</name>
+<college_name>mvit</college_name>
+<branch>CS</branch>
+<year>4</year>
+<join>2007</join>
+<email>kg@kg.com</email>
+</college>
+<college>
+<usn>1mv07cs047</usn>
+<name>ghosh</name>
+<college_name>mvit</college_name>
+<branch>CS</branch>
+<year>4</year>
+<join>2007</join>
+<email>kg@kg.com</email>
+</college>
+</vtu>
