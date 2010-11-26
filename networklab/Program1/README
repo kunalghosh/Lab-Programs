@@ -1,0 +1,22 @@
+Here we discuss the approach taken to solve the CRC-CCITT-n bit error
+detection code. (Here n is 16)
+
+What we are going to do :
+* Given a N bit message, append n bits to the message (here n is 16).
+* Get a generator string n+1 bits long ( here n+1 would become 17 bits).
+* create a new N+n bit array for storing the Remainder.
+* for every bit in the Message (i.e from 0 to N bits of the Message ) do : 
+
+  * Align the generator to the first occuring '1' in the NEW Message 
+    * Update the Remainder array with the XOR or generator and Message.
+    * Overwrite the bits in the Remainder array if necessary.
+
+* Append the remainder to the Message ( N bits long ).
+  * This message is send to the reciever.
+
+
+AT THE RECIEVER END:
+* Get the message appended with the CRC 
+* XOR the recieved message with the generator, as above.
+* The remainder must be all zeros. INDICATING no errors
+  * If the remainder is not all zeros INDICATES ERRORS have occurred.
