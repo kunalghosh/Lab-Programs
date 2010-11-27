@@ -10,26 +10,6 @@ using namespace std;
 
 #define GENERATOR_LENGTH 17
 
-/*
-void printVector(vector<bool> test){
-	for(int i=0;i!=test.size();i++){
-		cout<<test[i];
-	}
-	cout<<endl;
-}
-
-vector<bool> returnVector(string a){
-	
-	vector<bool> v;
-	for(int i=0;i!=a.size();i++){    
-		int temp = int(a[i])-int('0');
-		v.push_back(temp);
-	}
-	return v;
-
-}
-*/
-
 char XOR(char a , char b){
 	if(a == '0' && b=='0')
 		return '0';
@@ -39,15 +19,11 @@ char XOR(char a , char b){
 		return '1';
 }
 string divide(string message,string generator){
-	//string remainder(GENERATOR_LENGTH,'-');
 	string remainder(message.size(),'-');
-	//cout<<remainder<<endl;
-	//cout<<"POS is : "<<pos<<endl;
 	int pos;
 	pos = message.find('1');
-	while(/*pos != string::npos && */pos<(message.size()-16)){		
+	while(pos<(message.size()-16)){		
 		cout<<"POS is : "<<pos<<endl;
-		// string::npos is a static constant == -1 indicating substring not found
 		for (int i = pos ,j=0; /*i < generator.size() &&*/ j<generator.size() ; i++,j++){
 			remainder[i]=XOR(message[i],	generator[j]);	
 		}
@@ -64,20 +40,11 @@ int main(void){
 	cout<<"Please enter the Message bit pattern :";
 	cin>>message;
 	//get a bool vector from the string
-	//vector<bool> message = returnVector(a);
-	//printVector(message);
 	//append the message with 16 zeros
 	string message_with_zeros=message+"0000000000000000";
-	//cout<<message_with_zeros<<endl;
 	//get the generator
 	string generator("10001000000100001");
-	/*do{
-		generator.erase();//so that the length of the string returns to zero
-		cout<<"Please a 17 bit generator :";
-		cin>>generator;
-	}while(17!=generator.size());*/
 	//make the remainder string.
-	//cout<<message.size()<<endl;
 	cout<<"The CRC-CCITT Generator is : "<<generator<<endl;
 	cout<<"The message with zeros is  : "<<message_with_zeros<<endl;
 	string remainder;
@@ -107,12 +74,5 @@ int main(void){
 	else{
 		cout<<"The message contains ERRORS :(\n The Remainder is :"<<remainder<<endl;
 	}
-
-
-
-	//cout<<remainder<<endl;
-	//cout<<remainder<<" "<<remainder.size()<<" message with zeros SIZE :"<<message_with_zeros.size()<<endl;
-	//bool a=4^1;
-	//cout<<a<<endl;
 	return(0);
 }
