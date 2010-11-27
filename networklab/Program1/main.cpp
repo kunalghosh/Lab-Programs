@@ -5,8 +5,11 @@
 #include<vector>
 #include<algorithm>
 #include<list>
+
 using namespace std;
+
 #define GENERATOR_LENGTH 17
+
 /*
 void printVector(vector<bool> test){
 	for(int i=0;i!=test.size();i++){
@@ -26,6 +29,7 @@ vector<bool> returnVector(string a){
 
 }
 */
+
 char XOR(char a , char b){
 	if(a == '0' && b=='0')
 		return '0';
@@ -34,12 +38,30 @@ char XOR(char a , char b){
 	else
 		return '1';
 }
+string divide(string message,string generator){
+	//string remainder(GENERATOR_LENGTH,'-');
+	string remainder(message.size(),'-');
+	//cout<<remainder<<endl;
+	//cout<<"POS is : "<<pos<<endl;
+	int pos;
+	pos = message.find('1');
+	while(/*pos != string::npos && */pos<(message.size()-16)){		
+		cout<<"POS is : "<<pos<<endl;
+		// string::npos is a static constant == -1 indicating substring not found
+		for (int i = pos ,j=0; /*i < generator.size() &&*/ j<generator.size() ; i++,j++){
+			remainder[i]=XOR(message[i],	generator[j]);	
+		}
+		cout<<"Till  Now remainder is:"<<remainder<<endl;
+		pos = message.find('1',pos+1);		
+	}
+	return(remainder);
+}
 int main(void){
 	vector<bool> v;
 	int c;
 	//get the message
 	string message;
-	cout<<"Please enter the Message bit pattern";
+	cout<<"Please enter the Message bit pattern :";
 	cin>>message;
 	//get a bool vector from the string
 	//vector<bool> message = returnVector(a);
@@ -48,28 +70,46 @@ int main(void){
 	string message_with_zeros=message+"0000000000000000";
 	//cout<<message_with_zeros<<endl;
 	//get the generator
-	string generator;
-	do{
+	string generator("10001000000100001");
+	/*do{
 		generator.erase();//so that the length of the string returns to zero
-		cout<<"Please a 17 bit generator";
+		cout<<"Please a 17 bit generator :";
 		cin>>generator;
-	}while(17!=generator.size());
+	}while(17!=generator.size());*/
 	//make the remainder string.
-	cout<<message.size()<<endl;
-	string remainder = string(GENERATOR_LENGTH,'-');
+	//cout<<message.size()<<endl;
+	cout<<"The CRC-CCITT Generator is : "<<generator<<endl;
+	cout<<"The message with zeros is  : "<<message_with_zeros<<endl;
+	string remainder;
+	remainder = divide(message_with_zeros,generator); 
 	//max possible length of remainder = 1 less than the generator.
 	//get the first position of 1 in the message_with_zeros string.
-	int pos = message.find('1');
-	while(pos != string::npos ){
-		// string::npos is a static constant == -1 indicating substring not found
-		for (int i = pos ,j=0; i < generator.size() ; i++,j++){
-			remainder[i]=XOR(message_with_zeros[i],	generator[j]);	
-		}
+	cout<<"Remainder is: "<<remainder<<endl;
+	string checksum (remainder,remainder.size()-16,16);
+	cout<<"checksum :"<<checksum<<endl;
 
-		pos = message.find('1',pos+1);		
+	string message_and_checksum;
+	message_and_checksum = message + checksum;
+	
+	cout<<"Message to be sent to the reciever : "<<message_and_checksum<<endl;
+
+	//AT THE RECIEVER END
+
+	cout<<"Enter the Message recieved by the Reciever:";
+	string reciever_message;
+	cin>>reciever_message;
+
+	remainder = divide(reciever_message,generator);
+	int pos = remainder.find('1');
+	if(pos == string::npos){
+		cout<<"The message is error FREE !!"<<endl;
 	}
-	string checksum (remainder,2,16);
-	cout<<checksum<<endl;
+	else{
+		cout<<"The message contains ERRORS :(\n The Remainder is :"<<remainder<<endl;
+	}
+
+
+
 	//cout<<remainder<<endl;
 	//cout<<remainder<<" "<<remainder.size()<<" message with zeros SIZE :"<<message_with_zeros.size()<<endl;
 	//bool a=4^1;
