@@ -3,21 +3,10 @@
 #include<string>
 #include<iostream>
 #include<stdio.h>
+
 using namespace std;
 #define FSIZE 3
-//#include<
-/*
-class frame{
-	string message;
-	public:
-	void setFrame(string m){
-		message=m;
-	}
-	string getFrame(){
-		return message;
-	}
-}
-*/
+
 int main(void){
 	string message;
 
@@ -32,7 +21,6 @@ int main(void){
 	for(int i = 0 ; i < message.size() ; i=i+3){
 		string f(message,i,3);
 		frames.push_back(f);
-		//cout<<i<<endl;
 	}
 	//Display the parsed Frames
 	cout<<"The Frames after dividing are as follows:"<<endl;
@@ -57,4 +45,5 @@ int main(void){
 		cout<<frames.at(reciever.at(i)-1);
 	}
 	cout<<endl;
+	return(0);
 }
