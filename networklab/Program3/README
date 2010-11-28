@@ -1,0 +1,10 @@
+steps.
+
+1. Create a Class for a router.
+	the class contains :
+	Old_ADJacency matrix , New_ADjacency matrix
+	Old_LINk table , New_LINk table.
+	1. method to copy the old link table to the new link table.
+	2. method to build the new link table.
+2. build method to go over each router and build the
+   new link table.
