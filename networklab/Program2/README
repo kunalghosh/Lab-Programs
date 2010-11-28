@@ -1,0 +1,10 @@
+steps:
+
+1. Create a class for frame.
+2. get the message from the user.
+3. Parse the message into the frames.
+4. get the number of frames = N.
+5. generate a random sequence of N frames.
+6. display the sequence.
+7. sort the numbers using a sorting algorithm.
+8. display the sorted message.
